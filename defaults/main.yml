@@ -1,0 +1,4 @@
+---
+wordpress_activate_theme: ""
+wordpress_activate_plugins: []
+wordpress_activate_path: "/var/www/wordpress"

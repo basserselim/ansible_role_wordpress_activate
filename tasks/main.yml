@@ -1,0 +1,13 @@
+---
+- name: Activate Plugins
+  command: wp plugin activate {{ item }} --allow-root
+  args:
+    chdir: "{{ wordpress_activate_path }}"
+  register: wordpress_activate_plugins_results
+  with_elements:
+    - wordpress_activate_plugins
+
+- name: debug
+  debug: 'msg={{ wordpress_activate_plugins_results }}'
+  
+#- name: Activate Theme
