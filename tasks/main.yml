@@ -4,10 +4,9 @@
   args:
     chdir: "{{ wordpress_activate_path }}"
   register: wordpress_activate_plugins_results
-  with_elements:
-    - wordpress_activate_plugins
+  with_items: "{{ wordpress_activate_plugins }}"
 
 - name: debug
   debug: 'msg={{ wordpress_activate_plugins_results }}'
-  
+
 #- name: Activate Theme
