@@ -5,8 +5,13 @@
     chdir: "{{ wordpress_activate_path }}"
   register: wordpress_activate_plugins_results
   with_items: "{{ wordpress_activate_plugins }}"
+  when: wordpress_activate_plugins is defined and wordpress_activate_plugins != []
+  changed_when: "'Success: Plugin' in wordpress_activate_plugins_results.stdout"
 
-- name: debug
-  debug: 'msg={{ wordpress_activate_plugins_results }}'
-
-#- name: Activate Theme
+- name: Activate Theme
+  command: wp theme activate {{ wordpress_activate_theme }} --allow-root
+  args:
+    chdir: "{{ wordpress_activate_path }}"
+  register: wordpress_activate_theme_results
+  when: wordpress_activate_theme is defined and wordpress_activate_theme != ""
+  changed_when: "'Success: Switched to' in wordpress_activate_theme_results.stdout"
