@@ -26,7 +26,7 @@ Including an example of how to use your role (for instance, with variables passe
            wordpress_activate_plugins:
              - 'wp-updates-notifier'
              - 'rest-api'
-           wordpress_activate_theme: 'twenty-eleven' 
+           wordpress_activate_theme: 'twentyeleven' 
            wordpress_activate_path: "/var/www/wordpress"
 
 License
